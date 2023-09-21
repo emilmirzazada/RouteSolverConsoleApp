@@ -94,10 +94,10 @@ namespace NewGlobe.RouteSolver.Tests
         }
 
         [Test]
-        public async Task ProgramDisplaysErrorWhenEachRouteIsNotThreeChars()
+        public async Task ProgramDisplaysErrorWhenRouteIsLessThanThreeChars()
         {
-            SetupUserResponses("AB5E, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
-            var expectedPrompt = "\nERROR: Invalid input, each route should be 3 characters (e.g., \"AB5\")";
+            SetupUserResponses("AB, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7");
+            var expectedPrompt = "\nERROR: Invalid input, each route should be at least 3 characters (e.g., \"AB5\")";
 
             var outputLines = await RunMainAndGetConsoleOutput();
 
